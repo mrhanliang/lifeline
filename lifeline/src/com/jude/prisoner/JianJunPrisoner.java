@@ -2,36 +2,33 @@ package com.jude.prisoner;
 
 import com.jude.Manager;
 import com.jude.Prisoner;
-
 /**
- * Created by vqqs on 2015/10/31.
+ * Created by Administrator on 2015/11/5.
  */
-public class AcePrisoner implements Prisoner {
+
+public class JianJunPrisoner implements Prisoner{
     int totalCount;
     int totalPerson;
 
     @Override
     public String getName() {
-        return "郑昱旋2015211876";
+        return "潘建军2015212011";
     }
 
     @Override
     public void begin(Manager manager,int totalPerson, int totalCount) {
         this.totalCount = totalCount;
         this.totalPerson = totalPerson;
-
     }
+
     @Override
     public int take(int index, int last) {
-        if(index==0)
-            return totalCount;//就这样吧
-        else if (index==1)
-            return ((totalCount-last)/(index+1) + totalCount/totalPerson)/2;//王尼玛算法
-        else
-            return (totalCount-last)/index+1;//比前面的平均数多拿一个好了
+        //我选择死亡。。那么多豆子好麻烦啊。。。。
+     return 1000;
     }
 
     @Override
     public void result(boolean survived) {
+
     }
 }

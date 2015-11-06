@@ -1,37 +1,34 @@
 package com.jude.prisoner;
 
-import com.jude.Manager;
 import com.jude.Prisoner;
+import com.jude.Manager;
 
 /**
- * Created by vqqs on 2015/10/31.
+ * Created by Mr.Jude on 2015/10/28.
  */
-public class AcePrisoner implements Prisoner {
+public class FortunePrisoner implements Prisoner {
     int totalCount;
     int totalPerson;
 
     @Override
     public String getName() {
-        return "éƒ‘æ˜±æ—‹2015211876";
+        return "ÁõÅô2014214019";
     }
 
     @Override
     public void begin(Manager manager,int totalPerson, int totalCount) {
         this.totalCount = totalCount;
         this.totalPerson = totalPerson;
-
     }
+
     @Override
     public int take(int index, int last) {
-        if(index==0)
-            return totalCount;//å°±è¿™æ ·å§
-        else if (index==1)
-            return ((totalCount-last)/(index+1) + totalCount/totalPerson)/2;//ç‹å°¼ç›ç®—æ³•
-        else
-            return (totalCount-last)/index+1;//æ¯”å‰é¢çš„å¹³å‡æ•°å¤šæ‹¿ä¸€ä¸ªå¥½äº†
+        return  ((totalCount-last)/(index+1) + totalCount/totalPerson)/7£»//ÎªÊ²Ã´ÊÇ7£¿ÒòÎªÎÒÏ²»¶°¡£¡
     }
 
     @Override
     public void result(boolean survived) {
+
     }
+
 }

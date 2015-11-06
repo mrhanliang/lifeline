@@ -4,31 +4,33 @@ import com.jude.Manager;
 import com.jude.Prisoner;
 
 /**
- * Created by vqqs on 2015/10/31.
+ * Created by 阳 on 2015/11/6.
  */
-public class AcePrisoner implements Prisoner {
+public class XiaoChen  implements Prisoner {
     int totalCount;
     int totalPerson;
 
     @Override
     public String getName() {
-        return "郑昱旋2015211876";
+        return "陈阳2015214067";
     }
 
     @Override
     public void begin(Manager manager,int totalPerson, int totalCount) {
         this.totalCount = totalCount;
         this.totalPerson = totalPerson;
-
     }
+
     @Override
     public int take(int index, int last) {
         if(index==0)
-            return totalCount;//就这样吧
-        else if (index==1)
-            return ((totalCount-last)/(index+1) + totalCount/totalPerson)/2;//王尼玛算法
+        {
+            return totalCount-totalPerson;
+        }
+        else if(index==1)
+            return (totalCount-last+13);
         else
-            return (totalCount-last)/index+1;//比前面的平均数多拿一个好了
+            return (totalCount -last)/index;
     }
 
     @Override

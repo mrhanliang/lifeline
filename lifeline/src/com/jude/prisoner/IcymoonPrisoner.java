@@ -25,7 +25,7 @@ public class IcymoonPrisoner implements Prisoner {
     private ArrayList<Prisoner> mPrisoners;
     private Field mTempHoldField;
     private HashMap<Prisoner, Integer> mTempHold;
-    private ArrayList<Integer> appearedValueArray = new ArrayList<>(0);
+    private ArrayList<Integer> appearedValueArray = new ArrayList<Integer>(0);
 
     //返回你的名字＋学号
     @Override
@@ -132,7 +132,7 @@ public class IcymoonPrisoner implements Prisoner {
 
     //超度想死之人
     private void checkSame() {
-        ArrayList<Prisoner> zuoDierArray = new ArrayList<>(0);
+        ArrayList<Prisoner> zuoDierArray = new ArrayList<Prisoner>(0);
         for (Map.Entry<Prisoner, Integer> entry : mTempHold.entrySet()) {
             if (entry.getValue() == -1) {
                 continue;
@@ -159,7 +159,7 @@ public class IcymoonPrisoner implements Prisoner {
     //上帝模式开启
     private void godMode() throws NoSuchFieldException, IllegalAccessException {
         isGodMode = true;
-        ArrayList<Prisoner> zuoDierArray = new ArrayList<>(0);
+        ArrayList<Prisoner> zuoDierArray = new ArrayList<Prisoner>(0);
         for (Map.Entry<Prisoner, Integer> entry : mTempHold.entrySet()) {
             zuoDierArray.add(entry.getKey());
         }
@@ -176,7 +176,8 @@ public class IcymoonPrisoner implements Prisoner {
     private int saveMySelf() {
         int index = 0;
         if (!isGodMode) {
-            for (int i = 2; i < last; i++) {
+            int i;
+            for (i = 2; i < last; i++) {
                 if (!appearedValueArray.contains(i - 1) && !appearedValueArray.contains(i) && !appearedValueArray.contains(i + 1)) {
                     for (Prisoner scapegoat : mPrisoners) {
                         if (index == 0 && !scapegoat.getName().equals(this.getName())) {
@@ -192,9 +193,10 @@ public class IcymoonPrisoner implements Prisoner {
                             continue;
                         }
                     }
-                    return i;
+                    break;
                 }
             }
+            return i;
         } else {
             for (Prisoner scapegoat : mPrisoners) {
                 if (index == 0 && !scapegoat.getName().equals(this.getName())) {
@@ -210,8 +212,6 @@ public class IcymoonPrisoner implements Prisoner {
             }
             return 0;
         }
-        //我亡则天下亡
-        return last;
     }
 
     //最后告诉你活着还是死了
@@ -220,5 +220,6 @@ public class IcymoonPrisoner implements Prisoner {
         //重置一些数据
         isGodMode = false;
         isGetManger = true;
+        appearedValueArray = new ArrayList<Integer>(0);
     }
 }
